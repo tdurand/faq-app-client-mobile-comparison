@@ -6,7 +6,9 @@ This project aims to compare two differents methods to integrate Backbone.js wit
 
 It's a basic FAQ visualisation app which consume webservice from this project: [http://github.com/tdurand/faq-app-server](http://github.com/tdurand/faq-app-server)
 
-One use the jquery-mobile router project which extend the native jQMobile router to 
+One implementation use the jquery-mobile router project which extend the native jQMobile router and give the abilitie to pass parameters.
+
+The other use disable jQuery Mobile default router and use Backbone for routing.
 
 ### Demos:
 
