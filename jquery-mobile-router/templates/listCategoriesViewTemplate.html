@@ -1,0 +1,16 @@
+<% if(categories.size()==0) { %>
+        <p><%= labels.noCategories %></p>
+<% } %> 
+
+<%
+    categories.each(function(category,key) {
+    %>
+        <li>
+        <a href="#category?lang=<%= categories.lang %>&id=<%= category.attributes.id %>" data-transition="slide">
+            <h1><%= category.attributes.title %></h1>
+            <p><%= category.attributes.desc %></p>
+        </a>
+        </li>
+    <%
+        });
+%>

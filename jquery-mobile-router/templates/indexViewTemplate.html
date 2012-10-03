@@ -1,0 +1,27 @@
+<div data-role="header" data-position="fixed" data-theme="b">
+    <h1><%= labels.appTitle %></h1>
+</div><!-- /header -->
+
+<div data-role="content">
+    
+    <ul id="listCategoriesView" data-role="listview" data-theme="c">
+        
+    </ul>
+
+</div><!-- /content -->
+
+<div data-role="footer" data-theme="b">
+    <h1>
+    <form action="#index" method="GET" id="form-select-lang">
+    <select name="lang" id="lang" data-theme="c">
+        <%
+        _.each(categories.langs,function(lang) {
+        %>
+              <option value="<%= lang.code %>" <% if(lang.code==categories.lang) {%> selected="selected" <%} %>><%= lang.label %></option>
+        <%
+            });
+        %>
+    </select>
+    <form>
+    </h1>
+</div>

@@ -1,0 +1,22 @@
+<%
+    entries.each(function(entry,key) {
+    %>
+        <div data-role="collapsible" <% if(entries.idEntry!=undefined && entry.attributes.id==entries.idEntry) { %> data-collapsed="false" <% } %> data-entryid="<%= entry.attributes.id%>">
+        <h3><%= entry.attributes.title  %></h3>
+        <p><%= entry.attributes.desc %></p>
+        </div>
+    <%
+    });
+%>
+
+<div data-role="collapsible">
+        <h3><%= labels.noanswer %></h3>
+        <p><%= labels.contact %></p>
+        <form action="" method="POST">
+            <label for="email"><%= labels.email %></label>
+            <input name="email" type="email">
+            <label for="message"><%= labels.message %></label>
+            <textarea name="message"></textarea>
+            <input type="submit" value="<%= labels.send %>" data-theme="b">
+        </form>
+</div>
