@@ -32,7 +32,7 @@ define([
                 this.lang=lang;
             }
             //clean url (is transition given)
-            this.navigate("#"+lang, {replace: true});
+            this.navigate("#"+this.lang, {replace: true});
             var indexView=new IndexView({lang:this.lang});
             this.changePage(indexView,transition,reverse);
         },
