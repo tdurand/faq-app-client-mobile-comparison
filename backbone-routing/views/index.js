@@ -34,7 +34,7 @@ function($, _, Backbone,indexViewTemplate,listCategoriesViewTemplate,Categories,
     submitForm:function() {
       //Hack to prevent multiple change event call
       if($("#lang").val()!=Categories.lang) {
-        window.location.href=$("#lang").val();
+        faq.routers.router.navigate($("#lang").val(),{trigger: true});
       }
     },
 
@@ -70,8 +70,6 @@ function($, _, Backbone,indexViewTemplate,listCategoriesViewTemplate,Categories,
     onClose: function(){
       //Clean
       this.undelegateEvents();
-      Categories.off("all",this.renderList); 
-      Labels.off( 'all', this.render);
     }
 
   });

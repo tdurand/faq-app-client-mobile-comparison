@@ -45,7 +45,6 @@ function($, _, Backbone,categoryViewTemplate,listEntriesViewTemplate,Categories,
       //Trigger jquerymobile rendering
       var thisel=this.$el;
       this.$el.on( 'pagebeforeshow',function(event){
-         console.log("pagebeforeshow");
          thisel.trigger('pagecreate');
       });
       //return to enable chained calls
@@ -54,9 +53,7 @@ function($, _, Backbone,categoryViewTemplate,listEntriesViewTemplate,Categories,
 
 
     renderList: function() {
-      console.log("renderList");
       $.mobile.hidePageLoadingMsg()
-      console.log(Entries.idEntry);
 
       $(this.listentries).html(_.template(listEntriesViewTemplate,{
                                     entries:Entries,
@@ -69,7 +66,6 @@ function($, _, Backbone,categoryViewTemplate,listEntriesViewTemplate,Categories,
     },
 
     entryExpanded:function() {
-      console.log("Entry expanded");
       var expandedElement=this.getExpandedElement();
       var expandedEntryId=expandedElement.attr("data-entryid");
       if(expandedEntryId!=undefined) {

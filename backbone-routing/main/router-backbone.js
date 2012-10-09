@@ -32,6 +32,7 @@ define([
             }
             else {
                 this.lang=faq.defaults.lang;
+                faq.routers.router.navigate("#"+this.lang);
             }
             var indexView=new IndexView({lang:this.lang});
             faq.appView.show(indexView);
