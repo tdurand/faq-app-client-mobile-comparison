@@ -2,5 +2,6 @@
 Backbone routing
 
  ☐ Trouver comment supprimer les events attaché a la vue quand on change de page, peut être au hide du change page balancer un undelegateEvents() 
+ ☐ Finir le getTransition, le mettre dans le routeur en global et bien voir pour ne pas appliquer quarante fois les events dessus
  ☐ Voir comment récupérer l'évenement windows.history.back pour pouvoir appliquer la transition correcte lors d'un back depuis les fleches du navigateur
  ✔ Voir pour avoir le titre de la categorie sur la liste des entries @done (12-10-03 09:29)
