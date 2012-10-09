@@ -242,7 +242,7 @@ Do not uses jQM default routing and you can forget the B and C grade support : [
 
 Depending on your project requirements, both solution can be adopted. If you are doing only a phonegap app, maybe you just don't care to have pretty urls, and you want to use most of the jQM features.
 
-Using Backbone for routing make use of jQMobile only as an UI framework from that you can switch to build other interface to your app.
+Using Backbone for routing makes use of jQMobile only as an UI framework from that you can switch to build other interface to your app.
 
 I think that for a big project, backbone routing approachs will gives you a code much more maintainable, and if you are doing a web app clean url are priceless.
 
