@@ -2,6 +2,8 @@
 
 ## About:
 
+*Disclamer: I'm not an expert on the subject, and maybe i'm wrong or incomplete on some points, i will really appreciate some feedback.*
+
 This project aims to compare two differents methods to integrate Backbone.js with jQuery Mobile.
 
 It's a basic FAQ visualisation app which consume webservice from this project: [http://github.com/tdurand/faq-app-server](http://github.com/tdurand/faq-app-server)
@@ -20,11 +22,9 @@ Two differents approachs:
 
 ## Comparison :
 
-### Routing
+### Routing Declaration
 
-#### Declaration
-
-##### Backbone routing
+#### Backbone routing
 
 Backbone based routing is way better is this point, you can specify your routes like this:
 
@@ -46,7 +46,7 @@ And then you can access the parameters in your handlers:
 
 You can have really cleans and REST Like urls.
 
-##### jQuery Mobile Router
+#### jQuery Mobile Router
 
 jQM router doesn't give you the possibility to do pretty routing like this ([https://github.com/azicchetti/jquerymobile-router/issues/58](More info here on why)).
 
@@ -72,11 +72,11 @@ And then you can access the parameters in your handlers:
     },
 
 
-#### Url hash updating
+### Routing : Url hash updating
 
 A good web application design rule is that you can bookmark any page. For a front-end application it implies that you can easily manage the window.location object to update the current url
 
-##### Backbone routing
+#### Backbone routing
 
 Backbone provides a really nice way to do it with the navigate function of the router ([http://backbonejs.org/#Router-navigate](http://backbonejs.org/#Router-navigate) )
 
@@ -93,7 +93,7 @@ In the demo apps is particulery usefull to be able to bookmark a particular entr
             $(this).off("collapse.expanded");
     });
 
-##### jQuery Mobile Router
+#### jQuery Mobile Router
 
 With jquery mobile router you'll need to do all by hand. And i didn't find how to use windows.location.replace() without causing a jQM triggering a new rendering.
 
@@ -202,8 +202,47 @@ Additionaly, jQM will detect that you need a reverse transition when you press "
 
 ### Events 
 
-TODO
+#### Backbone routing
+
+Unlike jQuery Mobile Router, you can't trigger the routes handler on jquery mobile events (backbone trigger the routes on url changes), but you always can access to this events by putting a handler if you need it. 
+
+
+#### jQuery Mobile Router
+
+    The main reason is to preserve the granularity offered by jQuery Mobile while giving the programmer a simple way to tap into "unusual" page transition states, such as "pageinit" or "pageremove", as if they were standard routes. The outcome is a controller which is more powerful and versatile, in the jQM realm, than its purely hashchange based counterpart.
+
+With jQuery Mobile Router you can trigger the routes on some precise events:
+
+    bc  => pagebeforecreate
+    c   => pagecreate
+    i   => pageinit
+    bs  => pagebeforeshow
+    s   => pageshow
+    bh  => pagebeforehide
+    h   => pagehide
+    rm  => pageremove
+    bC  => pagebeforechange
+    bl  => pagebeforeload
+    l   => pageload 
+
+With the transition management this one of the main avantage of using jQuery Mobile Router.
+
+### Miscellaneous
+
+#### Reusability
+
+Using backbone for routing clearly separe your view logic from you app logic, you can easily reuse you code to build a new interface (for Desktop, Tablet ...)
+
+#### Compability
+
+Do not uses jQM default routing and you can forget the B and C grade support : [http://jquerymobile.com/demos/1.2.0/docs/about/platforms.html](http://jquerymobile.com/demos/1.2.0/docs/about/platforms.html)
+
 
 ## Conclusion
 
-TODO
+Depending on your project requirements, both solution can be adopted. If you are doing only a phonegap app, maybe you just don't care to have pretty urls, and you want to use most of the jQM features.
+
+Using Backbone for routing make use of jQMobile only as an UI framework from that you can switch to build other interface to your app.
+
+I think that for a big project, backbone routing approachs will gives you a code much more maintainable, and if you are doing a web app clean url are priceless.
+
