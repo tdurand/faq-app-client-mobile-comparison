@@ -34,11 +34,13 @@ define([
                 this.lang=faq.defaults.lang;
             }
             var indexView=new IndexView({lang:this.lang});
+            faq.appView.show(indexView);
             this.changePage(indexView,transition,reverse);
         },
 
         category:function(lang,id,idEntry,transition) {
             var categoryView=new CategoryView({id:id,lang:lang,idEntry:idEntry});
+            faq.appView.show(categoryView);
             this.changePage(categoryView,transition);
             $.mobile.showPageLoadingMsg();
         },

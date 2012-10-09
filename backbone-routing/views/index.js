@@ -65,7 +65,15 @@ function($, _, Backbone,indexViewTemplate,listCategoriesViewTemplate,Categories,
       $.mobile.hidePageLoadingMsg()
 
       return this;
+    },
+
+    onClose: function(){
+      //Clean
+      this.undelegateEvents();
+      Categories.off("all",this.renderList); 
+      Labels.off( 'all', this.render);
     }
+
   });
   return IndexView;
 });

@@ -15,10 +15,11 @@ require.config({
 });
 
 //1. load router.js,
-define(['jquery','underscore', 'backbone','router-backbone','jqm-config'],function($, _, Backbone,Router) {
+define(['jquery','underscore', 'backbone','router-backbone','appview','jqm-config'],function($, _, Backbone,Router,AppView) {
     $(function(){
             
         window.faq = window.faq || {
+            appView:AppView,
             routers:{
                 router:new Router()
             },
@@ -32,6 +33,13 @@ define(['jquery','underscore', 'backbone','router-backbone','jqm-config'],functi
                 reverse:false
             }
         };
+        //Extend view
+        Backbone.View.prototype.close = function(){
+          this.off();
+          if (this.onClose){
+            this.onClose();
+          }
+        }
 
         Backbone.history.start();
     });

@@ -22,7 +22,6 @@ function($, _, Backbone,categoryViewTemplate,listEntriesViewTemplate,Categories,
         if(Categories.size()==0) {
           Categories.setLang(this.options.lang);
           Categories.fetch();
-          Categories.off("reset",this.render,this); //remove previous callbacks
           Categories.on("reset",this.render,this);
         }
         Entries.setCategory(this.options.id);
@@ -30,10 +29,7 @@ function($, _, Backbone,categoryViewTemplate,listEntriesViewTemplate,Categories,
         Entries.setEntry(this.options.idEntry);
         this.render();
         Entries.fetch();
-        Entries.off('reset'); //remove previous callbacks
         Entries.on( 'reset', this.renderList, this );
-
-        //Set handlers
     },
 
     //render the content into div of view
@@ -48,7 +44,6 @@ function($, _, Backbone,categoryViewTemplate,listEntriesViewTemplate,Categories,
                                     
       //Trigger jquerymobile rendering
       var thisel=this.$el;
-      this.$el.off('pagebeforeshow'); //remove previous callbacks
       this.$el.on( 'pagebeforeshow',function(event){
          console.log("pagebeforeshow");
          thisel.trigger('pagecreate');
@@ -91,7 +86,13 @@ function($, _, Backbone,categoryViewTemplate,listEntriesViewTemplate,Categories,
       return $("#listEntriesView div.ui-collapsible").not("div.ui-collapsible-collapsed");
     },
 
-    
+    onClose: function(){
+      //Clean
+      this.undelegateEvents();
+      Categories.off("reset",this.render,this); 
+      Entries.off('reset'); 
+      this.$el.off('pagebeforeshow'); 
+    }
 
   });
   return CategoryView;
