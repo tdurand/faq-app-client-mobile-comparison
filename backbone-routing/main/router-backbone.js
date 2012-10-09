@@ -25,7 +25,7 @@ define([
             });
         },
 
-        index:function(lang,transition,reverse){
+        index:function(lang){
             //Set lang if given
             if(lang) {
                 this.lang=lang;
@@ -36,13 +36,13 @@ define([
             }
             var indexView=new IndexView({lang:this.lang});
             faq.appView.show(indexView);
-            this.changePage(indexView,transition,reverse);
+            this.changePage(indexView);
         },
 
-        category:function(lang,id,idEntry,transition) {
+        category:function(lang,id,idEntry) {
             var categoryView=new CategoryView({id:id,lang:lang,idEntry:idEntry});
             faq.appView.show(categoryView);
-            this.changePage(categoryView,transition);
+            this.changePage(categoryView);
             $.mobile.showPageLoadingMsg();
         },
 
