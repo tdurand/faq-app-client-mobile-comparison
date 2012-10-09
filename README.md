@@ -209,7 +209,7 @@ Unlike jQuery Mobile Router, you can't trigger the routes handler on jquery mobi
 
 #### jQuery Mobile Router
 
-    The main reason is to preserve the granularity offered by jQuery Mobile while giving the programmer a simple way to tap into "unusual" page transition states, such as "pageinit" or "pageremove", as if they were standard routes. The outcome is a controller which is more powerful and versatile, in the jQM realm, than its purely hashchange based counterpart.
+> The main reason is to preserve the granularity offered by jQuery Mobile while giving the programmer a simple way to tap into "unusual" page transition states, such as "pageinit" or "pageremove", as if they were standard routes. The outcome is a controller which is more powerful and versatile, in the jQM realm, than its purely hashchange based counterpart.
 
 With jQuery Mobile Router you can trigger the routes on some precise events:
 
