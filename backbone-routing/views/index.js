@@ -14,7 +14,7 @@ function($, _, Backbone,indexViewTemplate,listCategoriesViewTemplate,Categories,
     listview:"#listCategoriesView",
 
     events: {
-      "change #lang":"submitForm"
+      "change #lang":"submitForm",
     },
 
     initialize:function() {

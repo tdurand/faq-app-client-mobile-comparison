@@ -19,14 +19,17 @@ define(['jquery','underscore', 'backbone','router-backbone','jqm-config'],functi
     $(function(){
             
         window.faq = window.faq || {
-            // views: {
-            //     appview: new AppView
-            // },
             routers:{
                 router:new Router()
             },
+            nextTransition: {
+                type:"",
+                reverse:false,
+            },
             defaults:{
-                lang: "fr"
+                lang: "fr",
+                transition: "slide",
+                reverse:false
             }
         };
 

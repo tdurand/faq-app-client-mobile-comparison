@@ -26,7 +26,7 @@ define([
         category:function(type,match) {
             var params=Router.getParams(match[1]);
             var categoryView=new CategoryView({id:params.id,lang:params.lang,idEntry:params.idEntry});
-        }
+        },
       }
     );
 

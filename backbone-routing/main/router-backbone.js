@@ -13,26 +13,26 @@ define([
         routes: {
             '':                                                 'index',
             ':lang':                                            'index',
-            ':lang/:transition':                                'index', //Handle specific transition
-            ':lang/:transition/reverse/:reverse':               'index', //Handle reverse
             ':lang/category/:id':                               'category',
-            ':lang/category/:id/:transition':                   'category',
-            ':lang/category/:id/entry/:idEntry':                'category',
-            ':lang/category/:id/entry/:idEntry/:transition':    'category',
+            ':lang/category/:id/entry/:idEntry':                'category', 
         },
 
         initialize:function() {
-            this.lang="fr";
+            var me=this;
+            //Global Transition handler
+            $("a").live("touch click",function(e) {
+                me.setNextTransition(this);
+            });
         },
 
         index:function(lang,transition,reverse){
-
             //Set lang if given
             if(lang) {
                 this.lang=lang;
             }
-            //clean url (is transition given)
-            this.navigate("#"+this.lang, {replace: true});
+            else {
+                this.lang=faq.defaults.lang;
+            }
             var indexView=new IndexView({lang:this.lang});
             this.changePage(indexView,transition,reverse);
         },
@@ -43,20 +43,27 @@ define([
             $.mobile.showPageLoadingMsg();
         },
 
-        changePage:function (view,trans,reversed) {
-            var reverse=false;
-            var transition="slide";
-            if(trans!=undefined) {
-                if(reversed!=undefined) {
+        changePage:function (view) {
+            //Default
+            var reverse=faq.defaults.reverse;
+            var transition=faq.defaults.transition;
+            //Get last transition information if exists
+            if(faq.nextTransition.type!=undefined) {
+                if(faq.nextTransition.reverse!=undefined) {
                     reverse=true;
                 }
-                transition=trans;
+                transition=faq.nextTransition.type;
             }
             $.mobile.changePage($(view.el), {
                                         transition:transition,
                                         changeHash:false,
                                         reverse:reverse
                                     });
+        },
+
+        setNextTransition:function(el) {
+          faq.nextTransition.type=$(el).attr("data-transition");
+          faq.nextTransition.reverse=$(el).attr("data-reverse");
         }
 
     });

@@ -22,10 +22,9 @@ function($, _, Backbone,categoryViewTemplate,listEntriesViewTemplate,Categories,
         if(Categories.size()==0) {
           Categories.setLang(this.options.lang);
           Categories.fetch();
-          Categories.off("reset",this.render,this);
+          Categories.off("reset",this.render,this); //remove previous callbacks
           Categories.on("reset",this.render,this);
         }
-        
         Entries.setCategory(this.options.id);
         Entries.setLang(this.options.lang);
         Entries.setEntry(this.options.idEntry);
@@ -33,6 +32,8 @@ function($, _, Backbone,categoryViewTemplate,listEntriesViewTemplate,Categories,
         Entries.fetch();
         Entries.off('reset'); //remove previous callbacks
         Entries.on( 'reset', this.renderList, this );
+
+        //Set handlers
     },
 
     //render the content into div of view
@@ -88,7 +89,9 @@ function($, _, Backbone,categoryViewTemplate,listEntriesViewTemplate,Categories,
 
     getExpandedElement:function() {
       return $("#listEntriesView div.ui-collapsible").not("div.ui-collapsible-collapsed");
-    }
+    },
+
+    
 
   });
   return CategoryView;
