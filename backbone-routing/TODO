@@ -1,7 +1,8 @@
 
 Backbone routing
 
- ☐ Trouver comment supprimer les events attaché a la vue quand on change de page, peut être au hide du change page balancer un undelegateEvents() 
- ☐ Finir le getTransition, le mettre dans le routeur en global et bien voir pour ne pas appliquer quarante fois les events dessus
- ☐ Voir comment récupérer l'évenement windows.history.back pour pouvoir appliquer la transition correcte lors d'un back depuis les fleches du navigateur
+ ✔ Comparer le code de jquery-mobile router folder avec celui du repo faq-app-mobile pour voir qu'est-ce qui cause le blink bien chiant (la branch backbone-routing merde dans faq-app-mobile) => header=fixed était le probleme @done (12-10-11 12:17)
+ ✔ Trouver comment supprimer les events attaché a la vue quand on change de page, peut être au hide du change page balancer un undelegateEvents() @done (12-10-09 21:10)
+ ✔ Finir le getTransition, le mettre dans le routeur en global et bien voir pour ne pas appliquer quarante fois les events dessus @done (12-10-09 21:10)
+ ✔ Voir comment récupérer l'évenement windows.history.back pour pouvoir appliquer la transition correcte lors d'un back depuis les fleches du navigateur @done (12-10-09 21:10)
  ✔ Voir pour avoir le titre de la categorie sur la liste des entries @done (12-10-03 09:29)
