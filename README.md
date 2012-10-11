@@ -4,15 +4,17 @@
 
 *Disclamer: I'm not an expert on the subject, and maybe i'm wrong or incomplete on some points, i will really appreciate some feedback.*
 
+*Context: This small FAQ app will be used in production by Mosalingua, if your interested in a great apps to learn languages, you should definitely check out [http://www.mosalingua.com](http://www.mosalingua.com)*
+
 This project aims to compare two differents methods to integrate Backbone.js with jQuery Mobile.
 
 It's a basic FAQ visualisation app which consume webservice from this project: [http://github.com/tdurand/faq-app-server](http://github.com/tdurand/faq-app-server)
 
 Two differents approachs: 
 
-* keep jQuery Mobile default router and use the jquery-mobile router project which extend the native jQMobile router giving the possibility to pass parameters. [https://github.com/azicchetti/jquerymobile-router](Project on github)
+* keep jQuery Mobile default router and use the jquery-mobile router project which extend the native jQMobile router giving the possibility to pass parameters. ([Project on github](https://github.com/azicchetti/jquerymobile-router))
 
-* disable jQuery Mobile default router and use Backbone for routing. [https://github.com/addyosmani/backbone-mobile-search#backbone-and-jquery-mobile-resolving-the-routing-conflicts](based on addyosmany works)
+* disable jQuery Mobile default router and use Backbone for routing. ([based on addyosmany works](https://github.com/addyosmani/backbone-mobile-search#backbone-and-jquery-mobile-resolving-the-routing-conflicts))
 
 ## Demos:
 
@@ -244,5 +246,7 @@ Depending on your project requirements, both solution can be adopted. If you are
 
 Using Backbone for routing makes use of jQMobile only as an UI framework from that you can switch to build other interface to your app.
 
-I think that for a big project, backbone routing approachs will gives you a code much more maintainable, and if you are doing a web app clean url are priceless.
+I think that for a big project, backbone routing approach will gives you a code much more maintainable, and if you are doing a web app clean url are priceless.
+
+I will really appreciate for some feedback!
 
