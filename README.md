@@ -1,16 +1,16 @@
-# FAQ Mobile App : jQuery Mobile - Backbone.js - Require.js
+# Discussing jQuery Mobile and Backbone.js integration with a simple FAQ App
 
 ## About:
 
-*Disclamer: I'm not an expert on the subject, and maybe i'm wrong or incomplete on some points, i will really appreciate some feedback.*
+*Disclaimer: I'm not an expert on the subject, and maybe i'm wrong or incomplete on some points, i will really appreciate some feedback on [the blog post](http://www.thibault-durand.fr/post/33362116726/discussing-jquery-mobile-and-backbone-js-integration)*
 
 *Context: This small FAQ app will be used in production by Mosalingua, if your interested in a great apps to learn languages, you should definitely check out [http://www.mosalingua.com](http://www.mosalingua.com)*
 
-This project aims to compare two differents methods to integrate Backbone.js with jQuery Mobile.
+This project aims to compare two different methods to integrate Backbone.js with jQuery Mobile.
 
-It's a basic FAQ visualisation app which consume webservice from this project: [http://github.com/tdurand/faq-app-server](http://github.com/tdurand/faq-app-server)
+It's a basic FAQ visualization app which consume webservice from this project: [http://github.com/tdurand/faq-app-server](http://github.com/tdurand/faq-app-server)
 
-Two differents approachs: 
+Two different approaches: 
 
 * keep jQuery Mobile default router and use the jquery-mobile router project which extend the native jQMobile router giving the possibility to pass parameters. ([Project on github](https://github.com/azicchetti/jquerymobile-router))
 
@@ -84,7 +84,7 @@ Backbone provides a really nice way to do it with the navigate function of the r
 
 You can update the url and choose if you want to trigger the route, and even if you want to add the action in the history.
 
-In the demo apps is particulery usefull to be able to bookmark a particular entry:
+In the demo apps is particularly useful to be able to bookmark a particular entry:
 
     //Update the url without triggering the route
     faq.routers.router.navigate("#"+Entries.lang+"/category/"+Entries.idCategory+"/entry/"+expandedEntryId,{replace: true});
@@ -97,9 +97,9 @@ In the demo apps is particulery usefull to be able to bookmark a particular entr
 
 #### jQuery Mobile Router
 
-With jquery mobile router you'll need to do all by hand. And i didn't find how to use windows.location.replace() without causing a jQM triggering a new rendering.
+With jquery mobile router you'll need to do all by hand. And yet i didn't find how to use windows.location.replace() without causing a jQM triggering a new rendering.
 
-            //Change url SEE HOW TO NOT TRIGGER ROUTER 
+            //Change url TODO: SEE HOW TO DO NOT TRIGGER ROUTER 
             window.location.replace("#category?lang="+Entries.lang+"&id="+Entries.idCategory+"&idEntry="+expandedEntryId);
             //Attach a collapsed handler
             expandedElement.on("collapse.expanded",function(e) {
@@ -113,10 +113,10 @@ With jquery mobile router you'll need to do all by hand. And i didn't find how t
 
 I think is the ugliest part of backbone routing based integration.
 
-Because you manually change the page in the router , you need to know the transition at this moment of the execution. But when the function corresponding to your router is called by the Backbone Router, you don't know it.
+Because you manually change the page in the router , you need to know the transition at this moment of the execution. But when the handler corresponding to your route is called by the Backbone Router, you do not have this information.
 
     $.mobile.changePage($(view.el), {
-                                            transition:yourtransition,
+                                            transition:NEEDTONOWTHETRANSITION,
                                             changeHash:false,
                                             reverse:true or false
                                         });
@@ -199,7 +199,7 @@ This method is much more cleaner in term of boilerplate code, but it's still not
 
 Like native jQM, you'll just need to put a data-transition attribute on the link and jQM will handle the rest.
 
-Additionaly, jQM will detect that you need a reverse transition when you press "back button".
+Additionally, jQM will detect that you need a reverse transition when you press "back button".
 
 
 ### Events 
@@ -227,7 +227,7 @@ With jQuery Mobile Router you can trigger the routes on some precise events:
     bl  => pagebeforeload
     l   => pageload 
 
-With the transition management this one of the main avantage of using jQuery Mobile Router.
+With the transition management this one of the main advantage of using jQuery Mobile Router.
 
 ### Miscellaneous
 
@@ -248,5 +248,5 @@ Using Backbone for routing makes use of jQMobile only as an UI framework from th
 
 I think that for a big project, backbone routing approach will gives you a code much more maintainable, and if you are doing a web app clean url are priceless.
 
-I will really appreciate for some feedback!
+I will really appreciate some feedback!
 
