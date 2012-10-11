@@ -4,13 +4,13 @@ function($, _, Backbone){
   var Labels = Backbone.Model.extend({
 
     url:function() {
-      return "conf/labels_"+this.get("lang")+".json";
+      return "conf/labels_"+this.lang+".json";
     },
 
-    initialize:function() {
-      this.fetch();
+    setLang:function(lang) {
+      this.lang=lang;
     }
   });
-  return new Labels({lang:"fr"});
+  return new Labels();
 
 });

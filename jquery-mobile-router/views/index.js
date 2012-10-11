@@ -23,6 +23,7 @@ function($, _, Backbone,indexViewTemplate,listCategoriesViewTemplate,Categories,
             $.mobile.showPageLoadingMsg();
             Categories.setLang(this.options.lang);
             Categories.fetch();
+            Labels.setLang(this.options.lang);
             Labels.fetch();
         }
         this.render();

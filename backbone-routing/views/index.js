@@ -22,6 +22,7 @@ function($, _, Backbone,indexViewTemplate,listCategoriesViewTemplate,Categories,
         if(this.options.lang!=Categories.lang) {
             $.mobile.showPageLoadingMsg();
             Categories.setLang(this.options.lang);
+            Labels.setLang(this.options.lang);
             Categories.fetch();
             Labels.fetch();
         }

@@ -28,7 +28,7 @@ define(['jquery','underscore', 'backbone','router-backbone','appview','jqm-confi
                 reverse:false,
             },
             defaults:{
-                lang: "fr",
+                lang: "en",
                 transition: "slide",
                 reverse:false
             }

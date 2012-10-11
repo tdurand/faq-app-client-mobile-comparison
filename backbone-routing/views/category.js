@@ -23,6 +23,8 @@ function($, _, Backbone,categoryViewTemplate,listEntriesViewTemplate,Categories,
           Categories.setLang(this.options.lang);
           Categories.fetch();
           Categories.on("reset",this.render,this);
+          Labels.setLang(this.options.lang);
+          Labels.fetch();
         }
         Entries.setCategory(this.options.id);
         Entries.setLang(this.options.lang);

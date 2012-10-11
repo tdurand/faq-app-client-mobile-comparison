@@ -24,6 +24,8 @@ function($, _, Backbone,categoryViewTemplate,listEntriesViewTemplate,Categories,
           Categories.fetch();
           Categories.off("reset",this.render,this);
           Categories.on("reset",this.render,this);
+          Labels.setLang(this.options.lang);
+          Labels.fetch();
         }
         
         Entries.setCategory(this.options.id);

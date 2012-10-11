@@ -15,7 +15,7 @@ define([
 
         index:function(type,match){
             //Default lang
-            var lang="fr";
+            var lang="en";
             if(match[1]!==undefined) {
                 var params=Router.getParams(match[1]);
                 lang=params.lang;
