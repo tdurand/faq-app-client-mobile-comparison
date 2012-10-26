@@ -1,5 +1,8 @@
 # Discussing jQuery Mobile and Backbone.js integration with a simple FAQ App
 
+UPDATE (26/10/12) : Jquery Mobile Team added a sample in the offical docs which is using one of the methods presented below: Backbone Based Routing (here you will found more tips for transition management ) :
+[http://jquerymobile.com/test/docs/pages/backbone-require.html](http://jquerymobile.com/test/docs/pages/backbone-require.html)
+
 ## About:
 
 *Disclaimer: I'm not an expert on the subject, and maybe i'm wrong or incomplete on some points, i will really appreciate some feedback on [the blog post](http://www.thibault-durand.fr/post/33362116726/discussing-jquery-mobile-and-backbone-js-integration)*
